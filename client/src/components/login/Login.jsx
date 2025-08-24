@@ -24,7 +24,7 @@ const Login = () => {
         console.log("Submitting credentials:", credentials); // Check the credentials being submitted
         dispatch({type: "LOGIN_START"});
         try {
-            const response = await axios.post('/api/auth/login', credentials);
+            const response = await axios.post('http://localhost:8001/api/auth/login', credentials);
             // console.log("Response data:", response.data); // Log the response from the server
             dispatch({type: "LOGIN_SUCCESS", payload: response.data.details});
             navigate('/')
