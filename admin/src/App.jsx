@@ -29,59 +29,59 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
+
             <Route path="login" element={<Login />} />
-            <Route
-              index
-              element={
-                <ProtectedRoutes>
-                  <Home />
-                </ProtectedRoutes>
-              }
-            />
+            <Route index element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
+
             <Route path="users">
-              <Route index 
-              element={
-              <ProtectedRoutes>
-                <List cols={userColumns}/>
-              </ProtectedRoutes>
-              } />
-              <Route path=":userId" 
-              element={
-                <ProtectedRoutes>
+              <Route index
+                element={
+                  <ProtectedRoutes>
+                    <List cols={userColumns} />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route path=":userId"
+                element={
+                  <ProtectedRoutes>
                     <Single />
-                </ProtectedRoutes>
-                } />
+                  </ProtectedRoutes>
+                }
+              />
               <Route
                 path="new"
-                element={<ProtectedRoutes><New inputs={userInputs} title="Add New User" /></ProtectedRoutes> }
+                element={<ProtectedRoutes><New inputs={userInputs} title="Add New User" /></ProtectedRoutes>}
               />
             </Route>
+
             <Route path="hotels">
-              <Route index 
-              element={
-              <ProtectedRoutes>
-                <List cols={hotelCols}/>
-              </ProtectedRoutes>
-              } />
+              <Route index
+                element={
+                  <ProtectedRoutes>
+                    <List cols={hotelCols} />
+                  </ProtectedRoutes>
+                } />
               <Route path=":productId" element={<ProtectedRoutes> <Single /> </ProtectedRoutes>} />
               <Route
                 path="new"
                 element={<ProtectedRoutes><NewHotel inputs={hotelInputs} title="Add New Hotel" /></ProtectedRoutes>}
               />
             </Route>
+
             <Route path="rooms">
-              <Route index 
-              element={
-              <ProtectedRoutes>
-                <List cols={roomCols}/>
-              </ProtectedRoutes>
-              } />
+              <Route index
+                element={
+                  <ProtectedRoutes>
+                    <List cols={roomCols} />
+                  </ProtectedRoutes>
+                } />
               <Route path=":productId" element={<ProtectedRoutes> <Single /> </ProtectedRoutes>} />
               <Route
                 path="new"
                 element={<ProtectedRoutes><NewRoom inputs={roomInputs} title={'add new room'} /></ProtectedRoutes>}
               />
             </Route>
+
           </Route>
         </Routes>
       </BrowserRouter>
